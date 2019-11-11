@@ -7,18 +7,18 @@ deposit = 100000
 
 # symbols of desired assets
 symbols = [
-    "VFV.to",
-    "VAB.to",
-    "EQB.to",
-    "AQN.to"
+    "AAPL",
+    "AMZN",
+    "MSFT",
+    "JPM"
 ]
 
 # desired weighting of the symbols above
 desired_weights = [
-    90,
     10,
-    5,
-    8
+    15,
+    8,
+    5
 ]
 
 share_prices = [si.get_live_price(sym) for sym in symbols]
@@ -63,7 +63,7 @@ for option in res:
     investment_ratio = amount_invested/deposit
     option.pop()
 
-    print("INVESTED         :   {:.2f}".format(amount_invested))
+    print("\nINVESTED         :   {:.2f}".format(amount_invested))
     print("INVESTMENT RATIO :   {:.2%}\n".format(investment_ratio))
     df = pd.DataFrame(option, columns=['Symbol', 'Quantity'])
     df['PPS'] = df['Symbol'].map(lambda x: price_lookup[x])
@@ -77,4 +77,3 @@ for option in res:
     print(df.to_string(index=False))
     print("\n")
     print("-" * 100)
-    print("\n")
