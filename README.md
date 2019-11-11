@@ -6,6 +6,7 @@ Consider the following scenario:
 
  - you have $10000 of capital to inject into your portfolio
  - you want to invest into AAPL, AMZN, MSFT and JPM with weights 10, 15, 8, 5, respectively
+ - you want to invest as much of that $10000 as possible
 
 How many shares of each stock do you need to purchase? 
 
@@ -15,12 +16,12 @@ There's a decent chance something like this already exists somewhere, but I wasn
 
 ## Required Packages
 
- - `yahoo_fin` to get live stock prices
- - `pandas` because its easier to display output with a DataFrame
+ - `yahoo_fin` to get live stock prices, scraping from Yahoo Finance
+ - `pandas`
 
 ## Usage
 
-Currently, this utility is far from user-friendly. You need to punch your stock symbols and weight directly into the script. 
+Currently, this utility is far from user-friendly. You need to enter your stock symbols and weights directly into the script. 
 
 ![Input](https://scontent.fymy1-1.fna.fbcdn.net/v/t1.15752-9/75478396_541354423314960_4601194770532925440_n.png?_nc_cat=107&_nc_oc=AQnX3-soelCUQMKSZOCoJYtNH3nORhJfPhoA24We5FvZFcwc5bNAiBOwvDmdponT2T8&_nc_ht=scontent.fymy1-1.fna&oh=3b0280d40b59eebc2d91a518c364439e&oe=5E4AC675)
 
@@ -30,7 +31,7 @@ The algorithm will then evaluate a bunch of different investment allocations in 
 
 ## Vague Algorithm Explanation
 
-For this explanation, I'm going to continue with the stocks and weights I've been using so far in this readme.
+For this explanation, I'm going to continue with the example stocks and weights I've been using so far in this readme.
 
 We have $10000 of capital to inject, and we wish to allocate ~26.3158% of that capital into AAPL.
 
@@ -40,9 +41,9 @@ At time of writing this, one share of AAPL trades for $260.14 USD, and we want t
 
 `2631.58/260.14 = 10.116`
 
-However, a lot of brokerages only support share purchases in integer amount, so our ideal purchase of 10.116 shares isn't going to fly. We can either buy 10 (**under-allocated**) or 11 (**over-allocated**) shares of AAPL.
+However, a lot of brokerages only support share purchases in integer amounts, so our ideal purchase of 10.116 shares isn't going to fly. We can either buy 10 (**under-allocated**) or 11 (**over-allocated**) shares of AAPL.
 
-Unless we are incredibly lucky, for a given stock we will never be able to purchase an amount of shares that exactly mirrors our desired allocation, so we must either go **slightly below** or **slightly above**. This repeated choice of either under-allocating or over-allocating each stock in our portfolio forms the basis of the algorithm.
+For each stock, unless we are incredibly lucky we will never be able to purchase an amount of shares that exactly mirrors our desired allocation, so we must either go **slightly below** or **slightly above**. This repeated choice of either under-allocating or over-allocating each stock in our portfolio forms the basis of the algorithm.
 
 For every stock in the portfolio, we have two choices (go **down** or go **up**), so this naturally forms a binary tree structure. We navigate this tree using textbook DFS and prune as we go.
 
