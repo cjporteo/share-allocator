@@ -5,7 +5,7 @@ I created this utility to speed up and automate a common investing task.
 Consider the following scenario:
 
  - you have $10000 of capital to inject into your portfolio
- - you want to invest into AAPL, AMZN, MSFT and JPM with weightings 10, 15, 8, 5, respectively
+ - you want to invest into AAPL, AMZN, MSFT and JPM with weights 10, 15, 8, 5, respectively
 
 How many shares of each stock do you need to purchase? 
 
