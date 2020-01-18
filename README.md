@@ -23,11 +23,11 @@ There's a decent chance something like this already exists somewhere, but I wasn
 
 Currently, this utility is far from user-friendly. You need to enter your stock symbols and weights directly into the script. 
 
-![Input](https://scontent.fymy1-1.fna.fbcdn.net/v/t1.15752-9/75478396_541354423314960_4601194770532925440_n.png?_nc_cat=107&_nc_oc=AQnX3-soelCUQMKSZOCoJYtNH3nORhJfPhoA24We5FvZFcwc5bNAiBOwvDmdponT2T8&_nc_ht=scontent.fymy1-1.fna&oh=3b0280d40b59eebc2d91a518c364439e&oe=5E4AC675)
+![Input](https://i.imgur.com/YyALuqC.png)
 
 The algorithm will then evaluate several different investment allocations in an attempt to align with the desired weighting. The potential allocations are sorted according to proportion of the injected capital that is actually invested. The choices with the lowest amount of leftover cash are displayed first.
 
-![Output](https://scontent.fymy1-2.fna.fbcdn.net/v/t1.15752-9/74661831_595221584353095_1514716166503792640_n.png?_nc_cat=106&_nc_oc=AQljkXyDJ_aI8e754_lSAw-K8YAeeLDWUyKbJpFtPPsom4VT2Qj_9c6YZyyYfJKjdbs&_nc_ht=scontent.fymy1-2.fna&oh=4e9e46682bf93ea228485b83648d396a&oe=5E52F5D4)
+![Output](https://i.imgur.com/LUfJTUN.png)
 
 ## Vague Algorithm Explanation
 
